@@ -8,14 +8,14 @@ import keras
 
 @st.cache_resource
 def load_model():
-    return keras.models.load_model('/Users/aasthachaurasia/Desktop/emotionrecogapp/t4.h5')
+    return keras.models.load_model('t4.h5')
 
 
 model1=load_model()
 categories=['angry','fearful','happy','neutral','sad','surprised']
 
 #loading the haarcascade file 
-face_cascade = cv.CascadeClassifier('/Users/aasthachaurasia/Desktop/emotionrecogapp/haarcascade_frontalface_default.xml') 
+face_cascade = cv.CascadeClassifier('haarcascade_frontalface_default.xml') 
 if face_cascade.empty():
     st.error("Error loading Haar cascade file")
     st.stop()
