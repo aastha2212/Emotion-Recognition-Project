@@ -5,19 +5,27 @@ import os as os
 import keras
 
 #loading the trained model
-
 @st.cache_resource
 def load_model():
-    return keras.models.load_model('/Users/aasthachaurasia/Desktop/emotionrecogapp/t4.h5')
+    try:
+        model_path = os.path.join(os.path.dirname(__file__), 't4.h5')
+        return keras.models.load_model(model_path)
+    except Exception as e:
+        st.error(f"Error loading model: {str(e)}")
+        st.stop()
 
-
-model1=load_model()
-categories=['angry','fearful','happy','neutral','sad','surprised']
+model1 = load_model()
+categories = ['angry', 'fearful', 'happy', 'neutral', 'sad', 'surprised']
 
 #loading the haarcascade file 
-face_cascade = cv.CascadeClassifier('/Users/aasthachaurasia/Desktop/emotionrecogapp/haarcascade_frontalface_default.xml') 
-if face_cascade.empty():
-    st.error("Error loading Haar cascade file")
+try:
+    cascade_path = os.path.join(os.path.dirname(__file__), 'haarcascade_frontalface_default.xml')
+    face_cascade = cv.CascadeClassifier(cascade_path)
+    if face_cascade.empty():
+        st.error("Error loading Haar cascade file")
+        st.stop()
+except Exception as e:
+    st.error(f"Error loading Haar cascade: {str(e)}")
     st.stop()
 
 
