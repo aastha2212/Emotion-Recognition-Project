@@ -82,6 +82,11 @@ streamlit run implement.py
 
 Feel free to submit issues and enhancement requests!
 
+## Authors
+Aryan Thakur: https://github.com/Husky1024
+Aakanksha Malhotra: https://github.com/aakankshamalhotra
+Aastha Chaurasia: https://github.com/aastha2212
+
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
