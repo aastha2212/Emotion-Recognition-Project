@@ -1,8 +1,6 @@
 ---
 title: Emotion Recognition App
 emoji: 😊
-colorFrom: blue
-colorTo: purple
 sdk: streamlit
 sdk_version: "1.32.0"
 app_file: implement.py
@@ -71,13 +69,6 @@ streamlit run implement.py
 - h5py==3.10.0
 - pillow==9.5.0
 
-### System Dependencies
-- libgl1-mesa-glx
-- libglib2.0-0
-
-## Live Demo
-
-The application is deployed on Streamlit Cloud and can be accessed at: [Your Streamlit Cloud URL]
 
 ## How It Works
 
