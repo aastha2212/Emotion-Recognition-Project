@@ -1,20 +1,23 @@
 import streamlit as st
 import cv2 as cv
 import numpy as np
-import os as os
-import keras
+import os
+from tensorflow.keras.models import load_model as tf_load_model
+from tensorflow.keras.layers import InputLayer
 
 #loading the trained model
 @st.cache_resource
-def load_model():
+def load_emotion_model():
     try:
         model_path = os.path.join(os.path.dirname(__file__), 't4.h5')
-        return keras.models.load_model(model_path)
+        # Load the model with custom_objects to handle the input layer
+        model = tf_load_model(model_path, custom_objects={'InputLayer': InputLayer})
+        return model
     except Exception as e:
         st.error(f"Error loading model: {str(e)}")
         st.stop()
 
-model1 = load_model()
+model1 = load_emotion_model()
 categories = ['angry', 'fearful', 'happy', 'neutral', 'sad', 'surprised']
 
 #loading the haarcascade file 
