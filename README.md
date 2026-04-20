@@ -1,12 +1,3 @@
----
-title: Emotion Recognition App
-emoji: 😊
-sdk: streamlit
-sdk_version: "1.32.0"
-app_file: implement.py
-pinned: false
----
-
 # Real-Time Emotion Recognition App
 
 This application uses deep learning to perform real-time emotion recognition from webcam input. It can detect and classify seven different emotions: angry, fearful, happy, neutral, sad, and surprised.
